@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>💖 why not give me a chance?</title>
+    <title>💖 Stacie, you're everything to me</title>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +24,7 @@
             padding: 16px;
         }
         .card {
-            max-width: 640px;
+            max-width: 680px;
             width: 100%;
             background: rgba(255, 245, 248, 0.75);
             backdrop-filter: blur(4px);
@@ -71,14 +71,15 @@
             margin: 20px 0 18px;
             box-shadow: 0 8px 0 #f4c0d4, 0 12px 28px rgba(200, 70, 120, 0.15);
             border: 1px solid #ffdbe9;
+            transition: all 0.3s ease;
         }
         .question-text {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #3d1c2b;
             margin-bottom: 16px;
-            line-height: 1.3;
-            min-height: 4.2rem;
+            line-height: 1.4;
+            min-height: 4.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -96,7 +97,7 @@
             border: 2px solid #ffb0cc;
             padding: 12px 24px;
             border-radius: 60px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: #631e3a;
             cursor: pointer;
@@ -116,28 +117,30 @@
             box-shadow: 0 0px 0 #b86f8b;
         }
         .feedback {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin: 16px 0 8px;
             padding: 12px 16px;
             border-radius: 40px;
             background: rgba(255, 225, 240, 0.7);
             color: #552b3c;
-            min-height: 4rem;
+            min-height: 4.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px dashed #ff9bbd;
+            transition: all 0.3s ease;
         }
         .progress {
             display: flex;
             justify-content: center;
             gap: 8px;
             margin: 16px 0 8px;
+            flex-wrap: wrap;
         }
         .dot {
-            height: 14px;
-            width: 14px;
+            height: 12px;
+            width: 12px;
             background: #fbc4d9;
             border-radius: 20px;
             transition: 0.25s;
@@ -145,7 +148,7 @@
         }
         .dot.active {
             background: #e05385;
-            width: 32px;
+            width: 28px;
             border-color: #b33a68;
             box-shadow: 0 0 0 3px #ffc1da;
         }
@@ -268,29 +271,53 @@
             75% { transform: rotate(-2deg); }
             100% { transform: rotate(0deg); }
         }
-        .hidden-field {
-            display: none;
+        .sad-face {
+            font-size: 5rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .guilt-message {
+            background: #ffe0e8;
+            border-radius: 30px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #ff8aa8;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .heart-rain {
+            font-size: 1.5rem;
+            animation: floatHeart 4s ease-in-out infinite;
+        }
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
         }
         @media (max-width: 480px) {
             .card { padding: 24px 16px; }
             h1 { font-size: 1.8rem; }
-            .question-text { font-size: 1.4rem; }
-            .option-btn { font-size: 1rem; padding: 10px 16px; min-width: 80px; }
+            .question-text { font-size: 1.3rem; }
+            .option-btn { font-size: 0.9rem; padding: 10px 16px; min-width: 80px; }
         }
     </style>
 </head>
 <body>
 <div class="card" id="app">
     <h1>
-        <span>🌸</span> why not give me a chance? <span>🌸</span>
+        <span>🌸</span> Stacie, you're everything to me <span>🌸</span>
     </h1>
-    <div class="sub">✨ 5 playful questions • be honest ✨</div>
+    <div class="sub">✨ from James, with all my heart ✨</div>
 
     <!-- question area -->
     <div class="question-box" id="questionBox">
         <div class="question-text" id="questionText">Loading...</div>
         <div class="options" id="optionsContainer"></div>
-        <div class="feedback" id="feedback">💬 tap an answer!</div>
+        <div class="feedback" id="feedback">💬 what do you say?</div>
     </div>
 
     <!-- progress dots -->
@@ -300,16 +327,21 @@
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
     </div>
 
     <!-- phone + form section -->
     <div class="phone-section" id="phoneSection" style="display: none;">
-        <h3>📱 one last thing…</h3>
-        <p style="font-size:1.2rem; color:#4d2636; font-weight:600; margin-bottom: 10px;">drop your number? i promise i'll only send cute memes 💌</p>
+        <h3>💖 you made me the happiest man alive!</h3>
+        <p style="font-size:1.2rem; color:#4d2636; font-weight:600; margin-bottom: 10px;">can i have your number? i promise to cherish it forever 💌</p>
 
-        <!-- FORMSPREE FORM -->
         <form id="formspreeForm" action="https://formspree.io/f/xwvdwjoo" method="POST">
-            <!-- hidden field to store all answers as JSON -->
             <input type="hidden" name="answers" id="answersHidden" value="" />
 
             <div class="phone-input-group">
@@ -329,64 +361,112 @@
 
 <script>
     (function() {
-        // ----- 5 questions -----
+        // ----- 12 questions full of love, admiration, and care -----
         const questions = [
             {
-                text: "1. On a scale of 1 to 10, how cute do you think I am? 😏",
-                options: ["1 (lol)", "5 (okay)", "8 (hot)", "10 (🔥)"],
+                text: "Hi Stacie, it's James. 👋 I know this is bold, but I can't hold it in anymore...",
+                options: ["What is it? 🤔", "Okay James, go on... 👀"],
                 feedbackMap: {
-                    "1 (lol)": "😅 ouch! but i respect the honesty.",
-                    "5 (okay)": "🤔 okay, i'll take it… i'll work on my charm!",
-                    "8 (hot)": "😳 stop it, you're making me blush!",
-                    "10 (🔥)": "💥 i knew it! you have excellent taste."
+                    "What is it? 🤔": "I think about you all the time. Your smile, your laugh, everything.",
+                    "Okay James, go on... 👀": "You're the most beautiful soul I've ever met. I mean that."
                 }
             },
             {
-                text: "2. What's the real reason you're hesitating? 🤭",
-                options: ["too shy", "not sure yet", "you're weird", "i'm scared 😂"],
+                text: "Do you know how amazing you are? Because I need you to know... ✨",
+                options: ["Tell me more... 😊", "I don't feel amazing... 🥺"],
                 feedbackMap: {
-                    "too shy": "🥺 shy? that's adorable. i'll be gentle!",
-                    "not sure yet": "🧐 take your time… but not too long! 😉",
-                    "you're weird": "🤪 weird is my middle name! (and i love it)",
-                    "i'm scared 😂": "😱 scared of what? my amazing dance moves? 💃"
+                    "Tell me more... 😊": "You light up every room you walk into. You're kind, smart, and so incredibly beautiful.",
+                    "I don't feel amazing... 🥺": "Then let me show you. You're the most incredible person I know, Stacie."
                 }
             },
             {
-                text: "3. If i promised to make you laugh every day, what would you say? 😄",
-                options: ["maybe", "deal!", "prove it", "you? funny? 😂"],
+                text: "When I see you, my heart skips a beat. Do you feel that too? 💓",
+                options: ["Yes, I feel it too 💕", "Not really... 😕"],
                 feedbackMap: {
-                    "maybe": "👀 maybe is a good start… i'll take it!",
-                    "deal!": "🤝 DEAL! i'll prepare my best dad jokes.",
-                    "prove it": "😎 challenge accepted. prepare for giggles!",
-                    "you? funny? 😂": "😤 i'm hilarious! just you wait."
+                    "Yes, I feel it too 💕": "🥺 Really? That makes me so happy. I think we're meant to be.",
+                    "Not really... 😕": "That's okay... I'll wait for you. I'll always wait."
                 }
             },
             {
-                text: "4. What's your favourite way to spend a weekend? 🌸",
-                options: ["coffee & books", "adventures", "netflix & chill", "sleep 😴"],
+                text: "I would do anything to make you smile. Anything. What would make you smile right now? 🌟",
+                options: ["A hug 🤗", "A funny joke 😂", "Just you being you 😌"],
                 feedbackMap: {
-                    "coffee & books": "☕ books and coffee? i'll bring the pastries!",
-                    "adventures": "🏔️ let's go on an adventure together!",
-                    "netflix & chill": "📺 perfect. i'll bring snacks and good vibes.",
-                    "sleep 😴": "😴 sleep is great, but i bet i'm better than a nap 😉"
+                    "A hug 🤗": "I'd give you the warmest hug and never let go. 🤗",
+                    "A funny joke 😂": "Why did the scarecrow win an award? He was outstanding in his field! 😂",
+                    "Just you being you 😌": "That's the sweetest thing. I'll always be me, for you."
                 }
             },
             {
-                text: "5. Final question: do you believe in second chances? 💫",
-                options: ["yes", "no", "maybe", "tell me more"],
+                text: "Do you know I'd protect you with my life? I mean it. You mean that much to me. 🛡️",
+                options: ["That's really sweet 🥰", "You're too much James 😅"],
                 feedbackMap: {
-                    "yes": "💖 yes! that's all i needed to hear.",
-                    "no": "😲 no? but i'm asking nicely! 🥺",
-                    "maybe": "🤞 maybe is a door that's slightly open… i'll knock!",
-                    "tell me more": "🗣️ okay, i'll tell you: i'm persistent and cute. that's it."
+                    "That's really sweet 🥰": "I mean every word. I'd shield you from anything and everything.",
+                    "You're too much James 😅": "Maybe I am... but that's because you're worth everything."
+                }
+            },
+            {
+                text: "I want to be the one who makes you laugh, holds you when you're sad, and celebrates your wins. 🎉",
+                options: ["I'd like that 💕", "I don't know... 😔"],
+                feedbackMap: {
+                    "I'd like that 💕": "Then let me be that person. I promise I'll never let you down.",
+                    "I don't know... 😔": "Take your time. I'll be here, waiting with open arms."
+                }
+            },
+            {
+                text: "Stacie, you're the first thing I think about in the morning and the last at night. 🌅",
+                options: ["That's so romantic 💗", "Really? 🥺"],
+                feedbackMap: {
+                    "That's so romantic 💗": "Because it's true. You've completely captured my heart.",
+                    "Really? 🥺": "Really. You're always on my mind, Stacie."
+                }
+            },
+            {
+                text: "I promise to always be honest with you, support you, and never hurt you. Can you trust that? 🤝",
+                options: ["I trust you James 💖", "I want to... but I'm scared 💔"],
+                feedbackMap: {
+                    "I trust you James 💖": "That means more to me than you'll ever know. I won't break that trust.",
+                    "I want to... but I'm scared 💔": "I understand. I'll be patient and show you that I'm worthy of your trust."
+                }
+            },
+            {
+                text: "Will you let me be your friend first? Your best friend? And maybe more? 🥹",
+                options: ["Yes, I'd love that 💕", "I need more time... ⏳"],
+                feedbackMap: {
+                    "Yes, I'd love that 💕": "I promise to be the best friend you've ever had. And I'll hope for more every day.",
+                    "I need more time... ⏳": "Take all the time you need. I'm not going anywhere."
+                }
+            },
+            {
+                text: "I want to be the one who sees your true self, the real Stacie. Will you let me in? 🥺",
+                options: ["Yes, you can see the real me 💗", "I'm scared of being vulnerable 😰"],
+                feedbackMap: {
+                    "Yes, you can see the real me 💗": "Thank you for trusting me with that. I'll treasure every part of you.",
+                    "I'm scared of being vulnerable 😰": "I get it. But with me, you're safe. I'll never judge you."
+                }
+            },
+            {
+                text: "Stacie, I'm falling for you. Hard. And I don't want to stop. Is that okay? 💘",
+                options: ["Yes, I'm falling too 💕", "I don't know what to feel... 😶"],
+                feedbackMap: {
+                    "Yes, I'm falling too 💕": "🥺 I can't tell you how happy that makes me. Let's fall together.",
+                    "I don't know what to feel... 😶": "That's okay. I'll wait until you know. I'll always be here."
+                }
+            },
+            {
+                text: "Will you give me a chance? A real chance to show you how much I care? 🙏",
+                options: ["Yes, I'll give you a chance 💖", "No, I'm sorry... 😔"],
+                feedbackMap: {
+                    "Yes, I'll give you a chance 💖": "You just made my whole year. I promise I'll never make you regret this.",
+                    "No, I'm sorry... 😔": "💔 I understand... but please know I'll always care about you."
                 }
             }
         ];
 
         // ----- state -----
         let currentQuestionIndex = 0;
-        let answers = []; // stores selected answers
+        let answers = [];
         let allAnswered = false;
+        let isRejected = false;
 
         const questionText = document.getElementById('questionText');
         const optionsContainer = document.getElementById('optionsContainer');
@@ -398,18 +478,54 @@
         const resetBtn = document.getElementById('resetBtn');
         const form = document.getElementById('formspreeForm');
         const answersHidden = document.getElementById('answersHidden');
+        const questionBox = document.getElementById('questionBox');
 
         // ----- render question -----
         function renderQuestion(index) {
-            if (index >= questions.length) {
-                // all answered → show phone section
+            if (index >= questions.length || isRejected) {
+                if (isRejected) {
+                    questionBox.style.display = 'none';
+                    phoneSection.style.display = 'none';
+                    feedbackDiv.innerHTML = `
+                        <div style="text-align:center; width:100%;">
+                            <div class="sad-face">😢</div>
+                            <div class="guilt-message">
+                                <h3 style="color:#b3416b;">💔 You broke my heart...</h3>
+                                <p style="font-size:1.1rem; margin-top:10px; line-height:1.6;">
+                                    I poured my heart out to you, Stacie. I showed you my true self.<br>
+                                    I promised to protect you, care for you, and love you forever.<br><br>
+                                    <span style="font-weight:700; color:#8a2a4a; font-size:1.2rem;">
+                                        And still, you said no. 💔
+                                    </span><br><br>
+                                    I hope you feel a little guilty... because I'll always be here, waiting for you.<br>
+                                    I'll never stop caring about you. Never.<br><br>
+                                    <span style="font-size:1.5rem;">💔💔💔</span>
+                                </p>
+                                <p style="margin-top:15px; font-size:1.1rem; color:#555;">
+                                    <em>I'll still be your friend... if you ever change your mind. 💕</em>
+                                </p>
+                            </div>
+                            <form id="rejectionForm" action="https://formspree.io/f/xwvdwjoo" method="POST" style="margin-top:15px;">
+                                <input type="hidden" name="rejection" value="Stacie said NO 😢" />
+                                <input type="hidden" name="answers" value='["Stacie said NO"]' />
+                                <button type="submit" style="background:#d65a85; border:none; border-radius:60px; padding:12px 30px; color:white; font-weight:700; cursor:pointer; font-family:'Quicksand',sans-serif; box-shadow:0 4px 0 #873f5b;">
+                                    😔 Submit (so you remember this moment)
+                                </button>
+                            </form>
+                        </div>
+                    `;
+                    feedbackDiv.style.border = '2px solid #ff6b8a';
+                    return;
+                }
+
+                // Accepted!
                 document.querySelector('.question-box').style.display = 'none';
                 phoneSection.style.display = 'block';
                 allAnswered = true;
-                progressDots.forEach(dot => dot.classList.add('active'));
-                feedbackDiv.textContent = '💖 you made it! now give me your number 😍';
-                // update hidden field with answers
+                feedbackDiv.textContent = '💖 You said YES! You just made me the happiest person alive!';
+                feedbackDiv.style.border = '2px solid #ff6b8a';
                 answersHidden.value = JSON.stringify(answers);
+                progressDots.forEach(dot => dot.classList.add('active'));
                 return;
             }
 
@@ -427,16 +543,47 @@
                 btn.textContent = opt;
                 btn.addEventListener('click', function() {
                     answers[index] = opt;
-                    const feedbackMsg = q.feedbackMap[opt] || '😊 nice choice!';
+                    const feedbackMsg = q.feedbackMap[opt] || '😊 thank you for being honest.';
                     feedbackDiv.textContent = feedbackMsg;
                     feedbackDiv.classList.add('bounce-in');
                     setTimeout(() => feedbackDiv.classList.remove('bounce-in'), 400);
 
+                    // Update progress dots
                     progressDots.forEach((dot, i) => {
                         if (i <= index) dot.classList.add('active');
                         else dot.classList.remove('active');
                     });
 
+                    // Check if this is the "No" answer on the final question
+                    if (opt === "No, I'm sorry... 😔") {
+                        isRejected = true;
+                        // Submit rejection
+                        const rejectionData = {
+                            rejection: "Stacie said NO 😢",
+                            answers: JSON.stringify([...answers])
+                        };
+                        fetch('https://formspree.io/f/xwvdwjoo', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(rejectionData)
+                        }).then(() => {
+                            renderQuestion(questions.length);
+                        }).catch(() => {
+                            renderQuestion(questions.length);
+                        });
+                        return;
+                    }
+
+                    // If "Yes" on final question
+                    if (opt === "Yes, I'll give you a chance 💖") {
+                        setTimeout(() => {
+                            currentQuestionIndex++;
+                            renderQuestion(currentQuestionIndex);
+                        }, 600);
+                        return;
+                    }
+
+                    // Any other answer
                     setTimeout(() => {
                         if (currentQuestionIndex < questions.length - 1) {
                             currentQuestionIndex++;
@@ -454,18 +601,12 @@
                 const prevFeedback = q.feedbackMap[answers[index]] || '😊 nice choice!';
                 feedbackDiv.textContent = prevFeedback;
             } else {
-                feedbackDiv.textContent = '💬 tap an answer!';
+                feedbackDiv.textContent = '💬 what do you say?';
             }
-
-            progressDots.forEach((dot, i) => {
-                if (i <= index) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
         }
 
-        // ----- handle form submission (Formspree) -----
+        // ----- handle form submission -----
         form.addEventListener('submit', function(e) {
-            // If phone is empty, prevent submit and show message
             const phoneVal = phoneInput.value.trim();
             if (phoneVal.length < 6) {
                 e.preventDefault();
@@ -474,15 +615,9 @@
                 return;
             }
 
-            // Update hidden answers field with latest answers
             answersHidden.value = JSON.stringify(answers);
-
-            // Show sending message (will be replaced by Formspree redirect or stay)
             phoneMessage.textContent = '📤 sending your answers…';
             phoneMessage.style.color = '#1f7a4c';
-
-            // The form will submit to Formspree and redirect to their thank-you page.
-            // We let the native form submission happen.
         });
 
         // ----- reset -----
@@ -490,23 +625,25 @@
             currentQuestionIndex = 0;
             answers = [];
             allAnswered = false;
+            isRejected = false;
             document.querySelector('.question-box').style.display = 'block';
             phoneSection.style.display = 'none';
             phoneInput.value = '';
             phoneMessage.textContent = '✨ can\'t wait to text you ✨';
             phoneMessage.style.color = '#871f48';
             answersHidden.value = '';
+            feedbackDiv.innerHTML = '💬 what do you say?';
+            feedbackDiv.style.border = '1px dashed #ff9bbd';
             progressDots.forEach((dot, i) => {
                 if (i === 0) dot.classList.add('active');
                 else dot.classList.remove('active');
             });
             renderQuestion(0);
-            feedbackDiv.textContent = '💬 tap an answer!';
         }
 
         resetBtn.addEventListener('click', resetAll);
 
-        // also allow Enter key on phone input to submit form
+        // Enter key on phone input
         phoneInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 form.dispatchEvent(new Event('submit'));
@@ -520,9 +657,9 @@
         document.querySelector('h1 span:first-child').classList.add('floating');
         document.querySelector('h1 span:last-child').classList.add('floating');
 
-        // wink effect on question text
+        // wink effect
         setInterval(() => {
-            if (!allAnswered && document.querySelector('.question-box').style.display !== 'none') {
+            if (!allAnswered && !isRejected && document.querySelector('.question-box').style.display !== 'none') {
                 const qText = document.getElementById('questionText');
                 qText.classList.add('wink');
                 setTimeout(() => qText.classList.remove('wink'), 1000);
