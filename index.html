@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💖 why not give me a chance?</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #ffe9f4 0%, #ffd9e8 100%);
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+        .card {
+            max-width: 640px;
+            width: 100%;
+            background: rgba(255, 245, 248, 0.75);
+            backdrop-filter: blur(4px);
+            border-radius: 56px;
+            box-shadow: 0 20px 40px rgba(255, 80, 120, 0.2), 0 8px 16px rgba(255, 100, 150, 0.1);
+            padding: 32px 28px 40px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #b3416b;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        h1 span {
+            background: #ffb6d0;
+            padding: 0 16px;
+            border-radius: 60px;
+            font-size: 1.9rem;
+            line-height: 1.4;
+            color: #721c3f;
+        }
+        .sub {
+            font-size: 1.1rem;
+            color: #a34b6b;
+            background: rgba(255, 220, 235, 0.6);
+            padding: 8px 18px;
+            border-radius: 60px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .question-box {
+            background: white;
+            border-radius: 48px;
+            padding: 24px 20px 20px;
+            margin: 20px 0 18px;
+            box-shadow: 0 8px 0 #f4c0d4, 0 12px 28px rgba(200, 70, 120, 0.15);
+            border: 1px solid #ffdbe9;
+        }
+        .question-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #3d1c2b;
+            margin-bottom: 16px;
+            line-height: 1.3;
+            min-height: 4.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-break: break-word;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 12px 0 6px;
+        }
+        .option-btn {
+            background: #fcecf2;
+            border: 2px solid #ffb0cc;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #631e3a;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 0 #d48ca8;
+            flex: 1 0 auto;
+            min-width: 100px;
+            letter-spacing: 0.3px;
+        }
+        .option-btn:hover {
+            transform: scale(0.96) translateY(2px);
+            box-shadow: 0 2px 0 #b86f8b;
+            background: #ffdceb;
+        }
+        .option-btn:active {
+            transform: scale(0.92) translateY(4px);
+            box-shadow: 0 0px 0 #b86f8b;
+        }
+        .feedback {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 16px 0 8px;
+            padding: 12px 16px;
+            border-radius: 40px;
+            background: rgba(255, 225, 240, 0.7);
+            color: #552b3c;
+            min-height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ff9bbd;
+        }
+        .progress {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 16px 0 8px;
+        }
+        .dot {
+            height: 14px;
+            width: 14px;
+            background: #fbc4d9;
+            border-radius: 20px;
+            transition: 0.25s;
+            border: 1px solid #f59ab9;
+        }
+        .dot.active {
+            background: #e05385;
+            width: 32px;
+            border-color: #b33a68;
+            box-shadow: 0 0 0 3px #ffc1da;
+        }
+        .phone-section {
+            margin-top: 28px;
+            background: #ffebf2;
+            border-radius: 80px;
+            padding: 20px 20px 24px;
+            border: 2px solid #ffaec9;
+            box-shadow: 0 8px 0 #cf8aa6;
+            transition: 0.3s;
+        }
+        .phone-section h3 {
+            font-size: 1.8rem;
+            color: #771f45;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .phone-input-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 6px 0 4px;
+        }
+        #phoneInput {
+            border: 3px solid #f59ab9;
+            border-radius: 60px;
+            padding: 14px 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: white;
+            outline: none;
+            width: 200px;
+            text-align: center;
+            color: #3d1c2b;
+            font-family: 'Quicksand', sans-serif;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+        }
+        #phoneInput:focus {
+            border-color: #c24774;
+            box-shadow: 0 0 0 5px #ffd5e6;
+            transform: scale(1.02);
+        }
+        #phoneSubmit {
+            background: #d65a85;
+            border: none;
+            border-radius: 60px;
+            padding: 14px 32px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #873f5b;
+            transition: 0.08s linear;
+            border: 1px solid #ffb3cf;
+            font-family: 'Quicksand', sans-serif;
+        }
+        #phoneSubmit:hover {
+            transform: translateY(2px);
+            box-shadow: 0 3px 0 #873f5b;
+            background: #c74c78;
+        }
+        #phoneSubmit:active {
+            transform: translateY(5px);
+            box-shadow: 0 0px 0 #873f5b;
+        }
+        .phone-message {
+            margin-top: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #871f48;
+            background: #ffdbe9;
+            padding: 6px 14px;
+            border-radius: 60px;
+            display: inline-block;
+        }
+        .reset-area {
+            margin-top: 20px;
+        }
+        #resetBtn {
+            background: transparent;
+            border: 2px solid #cf88a4;
+            color: #6e2b44;
+            padding: 6px 22px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Quicksand', sans-serif;
+        }
+        #resetBtn:hover {
+            background: #ffd5e6;
+            transform: scale(0.96);
+        }
+        .bounce-in {
+            animation: bounce 0.5s ease;
+        }
+        @keyframes bounce {
+            0% { transform: scale(0.8); opacity: 0.4; }
+            60% { transform: scale(1.02); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+        .wink {
+            animation: wink 1.2s infinite;
+        }
+        @keyframes wink {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(4deg) scale(1.02); }
+            75% { transform: rotate(-2deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .hidden-field {
+            display: none;
+        }
+        @media (max-width: 480px) {
+            .card { padding: 24px 16px; }
+            h1 { font-size: 1.8rem; }
+            .question-text { font-size: 1.4rem; }
+            .option-btn { font-size: 1rem; padding: 10px 16px; min-width: 80px; }
+        }
+    </style>
+</head>
+<body>
+<div class="card" id="app">
+    <h1>
+        <span>🌸</span> why not give me a chance? <span>🌸</span>
+    </h1>
+    <div class="sub">✨ 5 playful questions • be honest ✨</div>
+
+    <!-- question area -->
+    <div class="question-box" id="questionBox">
+        <div class="question-text" id="questionText">Loading...</div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="feedback" id="feedback">💬 tap an answer!</div>
+    </div>
+
+    <!-- progress dots -->
+    <div class="progress" id="progressDots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <!-- phone + form section -->
+    <div class="phone-section" id="phoneSection" style="display: none;">
+        <h3>📱 one last thing…</h3>
+        <p style="font-size:1.2rem; color:#4d2636; font-weight:600; margin-bottom: 10px;">drop your number? i promise i'll only send cute memes 💌</p>
+
+        <!-- FORMSPREE FORM -->
+        <form id="formspreeForm" action="https://formspree.io/f/xwvdwjoo" method="POST">
+            <!-- hidden field to store all answers as JSON -->
+            <input type="hidden" name="answers" id="answersHidden" value="" />
+
+            <div class="phone-input-group">
+                <input type="tel" id="phoneInput" name="phone" placeholder="📞 07X XXX XXXX" maxlength="15" required />
+                <button type="submit" id="phoneSubmit">💖 send</button>
+            </div>
+        </form>
+
+        <div id="phoneMessage" class="phone-message">✨ can't wait to text you ✨</div>
+    </div>
+
+    <!-- reset -->
+    <div class="reset-area">
+        <button id="resetBtn">🔄 start over</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ----- 5 questions -----
+        const questions = [
+            {
+                text: "1. On a scale of 1 to 10, how cute do you think I am? 😏",
+                options: ["1 (lol)", "5 (okay)", "8 (hot)", "10 (🔥)"],
+                feedbackMap: {
+                    "1 (lol)": "😅 ouch! but i respect the honesty.",
+                    "5 (okay)": "🤔 okay, i'll take it… i'll work on my charm!",
+                    "8 (hot)": "😳 stop it, you're making me blush!",
+                    "10 (🔥)": "💥 i knew it! you have excellent taste."
+                }
+            },
+            {
+                text: "2. What's the real reason you're hesitating? 🤭",
+                options: ["too shy", "not sure yet", "you're weird", "i'm scared 😂"],
+                feedbackMap: {
+                    "too shy": "🥺 shy? that's adorable. i'll be gentle!",
+                    "not sure yet": "🧐 take your time… but not too long! 😉",
+                    "you're weird": "🤪 weird is my middle name! (and i love it)",
+                    "i'm scared 😂": "😱 scared of what? my amazing dance moves? 💃"
+                }
+            },
+            {
+                text: "3. If i promised to make you laugh every day, what would you say? 😄",
+                options: ["maybe", "deal!", "prove it", "you? funny? 😂"],
+                feedbackMap: {
+                    "maybe": "👀 maybe is a good start… i'll take it!",
+                    "deal!": "🤝 DEAL! i'll prepare my best dad jokes.",
+                    "prove it": "😎 challenge accepted. prepare for giggles!",
+                    "you? funny? 😂": "😤 i'm hilarious! just you wait."
+                }
+            },
+            {
+                text: "4. What's your favourite way to spend a weekend? 🌸",
+                options: ["coffee & books", "adventures", "netflix & chill", "sleep 😴"],
+                feedbackMap: {
+                    "coffee & books": "☕ books and coffee? i'll bring the pastries!",
+                    "adventures": "🏔️ let's go on an adventure together!",
+                    "netflix & chill": "📺 perfect. i'll bring snacks and good vibes.",
+                    "sleep 😴": "😴 sleep is great, but i bet i'm better than a nap 😉"
+                }
+            },
+            {
+                text: "5. Final question: do you believe in second chances? 💫",
+                options: ["yes", "no", "maybe", "tell me more"],
+                feedbackMap: {
+                    "yes": "💖 yes! that's all i needed to hear.",
+                    "no": "😲 no? but i'm asking nicely! 🥺",
+                    "maybe": "🤞 maybe is a door that's slightly open… i'll knock!",
+                    "tell me more": "🗣️ okay, i'll tell you: i'm persistent and cute. that's it."
+                }
+            }
+        ];
+
+        // ----- state -----
+        let currentQuestionIndex = 0;
+        let answers = []; // stores selected answers
+        let allAnswered = false;
+
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const feedbackDiv = document.getElementById('feedback');
+        const progressDots = document.querySelectorAll('.dot');
+        const phoneSection = document.getElementById('phoneSection');
+        const phoneInput = document.getElementById('phoneInput');
+        const phoneMessage = document.getElementById('phoneMessage');
+        const resetBtn = document.getElementById('resetBtn');
+        const form = document.getElementById('formspreeForm');
+        const answersHidden = document.getElementById('answersHidden');
+
+        // ----- render question -----
+        function renderQuestion(index) {
+            if (index >= questions.length) {
+                // all answered → show phone section
+                document.querySelector('.question-box').style.display = 'none';
+                phoneSection.style.display = 'block';
+                allAnswered = true;
+                progressDots.forEach(dot => dot.classList.add('active'));
+                feedbackDiv.textContent = '💖 you made it! now give me your number 😍';
+                // update hidden field with answers
+                answersHidden.value = JSON.stringify(answers);
+                return;
+            }
+
+            document.querySelector('.question-box').style.display = 'block';
+            phoneSection.style.display = 'none';
+            allAnswered = false;
+
+            const q = questions[index];
+            questionText.textContent = q.text;
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+                btn.addEventListener('click', function() {
+                    answers[index] = opt;
+                    const feedbackMsg = q.feedbackMap[opt] || '😊 nice choice!';
+                    feedbackDiv.textContent = feedbackMsg;
+                    feedbackDiv.classList.add('bounce-in');
+                    setTimeout(() => feedbackDiv.classList.remove('bounce-in'), 400);
+
+                    progressDots.forEach((dot, i) => {
+                        if (i <= index) dot.classList.add('active');
+                        else dot.classList.remove('active');
+                    });
+
+                    setTimeout(() => {
+                        if (currentQuestionIndex < questions.length - 1) {
+                            currentQuestionIndex++;
+                            renderQuestion(currentQuestionIndex);
+                        } else {
+                            currentQuestionIndex++;
+                            renderQuestion(currentQuestionIndex);
+                        }
+                    }, 500);
+                });
+                optionsContainer.appendChild(btn);
+            });
+
+            if (answers[index]) {
+                const prevFeedback = q.feedbackMap[answers[index]] || '😊 nice choice!';
+                feedbackDiv.textContent = prevFeedback;
+            } else {
+                feedbackDiv.textContent = '💬 tap an answer!';
+            }
+
+            progressDots.forEach((dot, i) => {
+                if (i <= index) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+
+        // ----- handle form submission (Formspree) -----
+        form.addEventListener('submit', function(e) {
+            // If phone is empty, prevent submit and show message
+            const phoneVal = phoneInput.value.trim();
+            if (phoneVal.length < 6) {
+                e.preventDefault();
+                phoneMessage.textContent = '😅 hmm, that’s too short… try again?';
+                phoneMessage.style.color = '#b3416b';
+                return;
+            }
+
+            // Update hidden answers field with latest answers
+            answersHidden.value = JSON.stringify(answers);
+
+            // Show sending message (will be replaced by Formspree redirect or stay)
+            phoneMessage.textContent = '📤 sending your answers…';
+            phoneMessage.style.color = '#1f7a4c';
+
+            // The form will submit to Formspree and redirect to their thank-you page.
+            // We let the native form submission happen.
+        });
+
+        // ----- reset -----
+        function resetAll() {
+            currentQuestionIndex = 0;
+            answers = [];
+            allAnswered = false;
+            document.querySelector('.question-box').style.display = 'block';
+            phoneSection.style.display = 'none';
+            phoneInput.value = '';
+            phoneMessage.textContent = '✨ can\'t wait to text you ✨';
+            phoneMessage.style.color = '#871f48';
+            answersHidden.value = '';
+            progressDots.forEach((dot, i) => {
+                if (i === 0) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+            renderQuestion(0);
+            feedbackDiv.textContent = '💬 tap an answer!';
+        }
+
+        resetBtn.addEventListener('click', resetAll);
+
+        // also allow Enter key on phone input to submit form
+        phoneInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                form.dispatchEvent(new Event('submit'));
+            }
+        });
+
+        // ----- init -----
+        resetAll();
+
+        // floating emojis
+        document.querySelector('h1 span:first-child').classList.add('floating');
+        document.querySelector('h1 span:last-child').classList.add('floating');
+
+        // wink effect on question text
+        setInterval(() => {
+            if (!allAnswered && document.querySelector('.question-box').style.display !== 'none') {
+                const qText = document.getElementById('questionText');
+                qText.classList.add('wink');
+                setTimeout(() => qText.classList.remove('wink'), 1000);
+            }
+        }, 4000);
+    })();
+</script>
+</body>
+</html>
